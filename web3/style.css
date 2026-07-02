@@ -1,0 +1,1343 @@
+:root {
+    --verde-tern: #324d3f;
+    --crema-tern: #f9f4eb;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('assets/img/img-portada.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    /* Todo alineado a la izquierda */
+    align-items: center;
+    /* Centra verticalmente el logo con el texto del menú */
+    gap: 60px;
+    /* Distancia entre el logo y las palabras del menú */
+}
+
+.logo {
+    height: 35px;
+    /* Ajustá este número si el logo te queda muy grande o muy chico */
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+    /* Separación entre cada opción del menú */
+}
+
+.nav-links a {
+    color: var(--verde-tern);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* --- CONTENIDO PRINCIPAL (HERO) --- */
+.hero-content {
+    margin-top: 150px;
+}
+
+.main-heading {
+    color: var(--verde-tern);
+    font-size: 70px;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.semibold {
+    font-weight: 700;
+}
+
+.cta-button {
+    background-color: var(--verde-tern);
+    color: var(--crema-tern);
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* --- SECCIÓN: ¿POR QUÉ LA LINK? --- */
+.por-que-link {
+    min-height: 600px;
+    background-color: #f0e9df;
+    padding: 60px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.seccion-titulo {
+    color: #324d3f;
+    font-size: 42px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Contenedor que pone las 4 tarjetas una al lado de la otra */
+.tarjetas-contenedor {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Esto permite que en pantallas más chicas se acomoden solas abajo */
+    max-width: 1300px;
+}
+
+/* Estilo individual de cada rectángulo (287 x 273 px) */
+.tarjeta {
+    background-color: #f9f4eb;
+    width: 287px;
+    height: 273px;
+    border-radius: 30px;
+    /* Bordes bien redondeados como en tu imagen */
+    padding: 35px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* Todo alineado a la izquierda */
+}
+
+.tarjeta-icono {
+    height: 45px;
+    /* Altura del ícono lineal */
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.tarjeta-subtitulo {
+    color: #324d3f;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.tarjeta-texto {
+    color: #324d3f;
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* --- SECCIÓN: PENSADA PARA TU RUTINA --- */
+.rutina-seccion {
+    min-height: 100vh;
+    /* Ocupa el alto de la pantalla simulando los 1080px */
+    background-color: var(--fondo-secciones);
+    /* Mantiene el fondo #f0e9df */
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.rutina-titulo {
+    color: var(--verde-tern);
+    font-size: 48px;
+    font-weight: 600;
+    /* Poppins Semibold */
+    margin-top: 0;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+/* Contenedor de la galería */
+.galeria-rutina {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    max-width: 1300px;
+    height: 550px;
+    /* Altura general de las fotos */
+    justify-content: center;
+}
+
+/* Estilo base de cada tarjeta (estado inactivo/angosto) */
+.tarjeta-rutina {
+    position: relative;
+    flex: 1;
+    /* Todas empiezan ocupando el mismo ancho (1 parte) */
+    border-radius: 40px;
+    overflow: hidden;
+    /* Esto recorta la imagen y el cuadro al borde redondo */
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Animación súper suave al expandirse */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imagen de fondo en cada tarjeta */
+.tarjeta-rutina img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Evita que la foto se amolde o deforme al cambiar el tamaño */
+    transition: transform 0.6s ease;
+}
+
+/* Cuadro de texto oculto por defecto */
+.info-rutina {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--crema-tern);
+    /* #f9f4eb */
+    padding: 25px 20px;
+    box-sizing: border-box;
+    text-align: center;
+
+    /* Lo ocultamos deslizándolo hacia abajo y haciéndolo transparente */
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.5s ease;
+}
+
+.info-rutina p {
+    color: var(--verde-tern);
+    font-size: 18px;
+    font-weight: 500;
+    /* Poppins Medium */
+    margin: 0;
+}
+
+/* --- EFECTO HOVER (Al pasar el mouse o en la tarjeta por defecto) --- */
+/* Hacemos que la tarjeta que tiene el mouse crezca 2.5 veces más que las otras */
+.tarjeta-rutina:hover,
+.tarjeta-rutina.activa:hover {
+    flex: 2.5;
+}
+
+/* Al pasar el mouse, hacemos un leve zoom a la foto */
+.tarjeta-rutina:hover img {
+    transform: scale(1.05);
+}
+
+/* Al pasar el mouse, el cuadro de texto sube y aparece */
+.tarjeta-rutina:hover .info-rutina {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE: En celulares se apilan verticalmente */
+@media (max-width: 768px) {
+    .galeria-rutina {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .tarjeta-rutina {
+        height: 350px;
+        width: 100%;
+    }
+
+    .tarjeta-rutina:hover {
+        flex: 1;
+        /* En celular no se expanden a lo ancho */
+    }
+
+    /* En celular dejamos visible la información siempre para mejorar la lectura */
+    .info-rutina {
+        opacity: 1;
+        transform: translateY(0);
+        position: relative;
+    }
+}
+
+/* --- SECCIÓN: DIMENSIONES REALES --- */
+.dimensiones-seccion {
+    min-height: 100vh;
+    background-color: var(--crema-tern);
+    /* Mantiene el fondo crema de base */
+    padding: 80px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.dimensiones-titulo {
+    color: var(--verde-tern);
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 50px;
+    text-align: left;
+    /* Alineado a la izquierda según tu especificación */
+}
+
+.dimensiones-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.bloque-bici {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+}
+
+/* Botones CTA (Plegada / Abierta) */
+.cta-dimensiones {
+    background-color: var(--verde-tern);
+    color: var(--crema-tern);
+    /* Color #f9f4eb (ó #f0e9df) */
+    padding: 12px 35px;
+    border-radius: 50px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    /* Poppins Regular */
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-dimensiones:hover {
+    transform: scale(1.05);
+    background-color: #24382d;
+    /* Verde penitas más oscuro al pasar el mouse */
+}
+
+/* Contenedor relativo para posicionar el plano arquitectónico */
+.contenedor-plano {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.img-bici {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    /* Mantiene la foto de la bici por encima de las líneas */
+}
+
+/* --- MAGIA DE LA INTERACCIÓN --- */
+/* Las medidas están ocultas por defecto y se vuelven visibles al pasar el mouse 
+   por el botón o por encima de la imagen de la bici */
+.medidas-capa {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
+}
+
+.bloque-bici:hover .medidas-capa,
+.cta-dimensiones:hover~.contenedor-plano .medidas-capa {
+    opacity: 1;
+}
+
+/* --- DISEÑO DE LAS LÍNEAS DE MEDIDA (ESTILO PLANO) --- */
+.medida {
+    position: absolute;
+    color: var(--verde-tern);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dibujo de los puntitos en los extremos */
+.punto {
+    width: 8px;
+    height: 8px;
+    background-color: var(--verde-tern);
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* Dibujo de las líneas punteadas horizontales y verticales */
+.linea-x {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1.5px dashed var(--verde-tern);
+}
+
+.linea-y {
+    height: 100%;
+    width: 1px;
+    border-left: 1.5px dashed var(--verde-tern);
+}
+
+/* --- POSICIÓN EXACTA DE LAS MEDIDAS (BICI PLEGADA) --- */
+/* 80 cm (inferior) */
+.m-80cm {
+    bottom: 0px;
+    left: 15%;
+    width: 70%;
+    flex-direction: column;
+}
+
+.m-80cm .p-izq {
+    left: 0;
+    bottom: -3.5px;
+}
+
+.m-80cm .p-der {
+    right: 0;
+    bottom: -3.5px;
+}
+
+.m-80cm .texto-medida {
+    margin-top: 10px;
+}
+
+/* 73 cm (vertical derecha) */
+.m-73cm {
+    right: 5%;
+    top: 15%;
+    height: 70%;
+    flex-direction: row;
+}
+
+.m-73cm .p-sup {
+    top: 0;
+    left: -3.5px;
+}
+
+.m-73cm .p-inf {
+    bottom: 0;
+    left: -3.5px;
+}
+
+.m-73cm .texto-medida {
+    margin-left: 15px;
+}
+
+/* 39,5 cm (diagonal izquierda) */
+.m-39cm {
+    left: 0%;
+    bottom: 10%;
+    width: 25%;
+    transform: rotate(25deg);
+    /* Le da la inclinación diagonal idéntica a tu diseño */
+    flex-direction: column;
+}
+
+.m-39cm .p-izq {
+    left: 0;
+    bottom: -3.5px;
+}
+
+.m-39cm .p-der {
+    right: 0;
+    bottom: -3.5px;
+}
+
+.m-39cm .texto-medida {
+    margin-top: 25px;
+    transform: rotate(-25deg);
+}
+
+/* Endereza el número para que sea legible */
+
+/* --- POSICIÓN EXACTA DE LAS MEDIDAS (BICI ABIERTA) --- */
+/* 159 cm (inferior) */
+.m-159cm {
+    bottom: 0px;
+    left: 5%;
+    width: 85%;
+    flex-direction: column;
+}
+
+.m-159cm .p-izq {
+    left: 0;
+    bottom: -3.5px;
+}
+
+.m-159cm .p-der {
+    right: 0;
+    bottom: -3.5px;
+}
+
+.m-159cm .texto-medida {
+    margin-top: 10px;
+}
+
+/* 110 cm (vertical derecha) */
+.m-110cm {
+    right: 0%;
+    top: 10%;
+    height: 80%;
+    flex-direction: row;
+}
+
+.m-110cm .p-sup {
+    top: 0;
+    left: -3.5px;
+}
+
+.m-110cm .p-inf {
+    bottom: 0;
+    left: -3.5px;
+}
+
+.m-110cm .texto-medida {
+    margin-left: 15px;
+}
+
+/* RESPONSIVE: En celulares se apilan verticalmente */
+@media (max-width: 900px) {
+    .dimensiones-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bloque-bici {
+        width: 100%;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .dimensiones-titulo {
+        text-align: center;
+    }
+
+    /* En celulares dejamos visibles las medidas siempre para que no dependan del tacto/clic */
+    .medidas-capa {
+        opacity: 1;
+    }
+}
+
+/* --- SECCIÓN: ACCESORIOS (COMPLETÁ TU LINK B7) --- */
+.accesorios-seccion {
+    min-height: 100vh;
+    background-color: var(--fondo-secciones);
+    /* Mantiene el fondo base #f0e9df */
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.accesorios-titulo {
+    color: var(--verde-tern);
+    font-size: 48px;
+    font-weight: 600;
+    /* Poppins Semibold */
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+.accesorios-subtitulo {
+    color: var(--verde-tern);
+    font-size: 20px;
+    font-weight: 400;
+    /* Poppins Regular */
+    margin: 0 0 60px 0;
+    text-align: center;
+}
+
+/* Grilla que alinea las 5 tarjetas en fila */
+.accesorios-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* En pantallas chicas bajan solas */
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Estilo base de los 5 rectángulos */
+.tarjeta-accesorio {
+    background-color: #dcd6c8;
+    /* Color unificado para todos como pediste */
+    width: 240px;
+    height: 380px;
+    border-radius: 35px;
+    /* Puntas bien redondeadas */
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+/* Contenedor de la foto del producto */
+.contenedor-img-acc {
+    height: 180px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.img-acc {
+    max-height: 160px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+/* Subtítulos de cada producto (Poppins Semibold en verde oscuro) */
+.acc-subtitulo {
+    color: var(--verde-tern);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    transition: transform 0.4s ease;
+}
+
+/* Descripción (oculta por defecto para el efecto hover) */
+.acc-desc {
+    color: var(--verde-tern);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 15px 0 0 0;
+    opacity: 0;
+    transform: translateY(20px);
+    /* Escondida más abajo */
+    transition: all 0.4s ease;
+}
+
+/* --- ESTILO ESPECIAL TARJETA 5 (VER MÁS) --- */
+.tarjeta-ver-mas {
+    justify-content: center;
+    /* Centrado vertical y horizontal */
+}
+
+.ver-mas-texto {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.icono-flecha {
+    width: 45px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* --- MAGIA HOVER (AL PASAR EL CURSOR) --- */
+/* La tarjeta crece ligeramente y gana una sombra suave */
+.tarjeta-accesorio:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(50, 77, 63, 0.12);
+}
+
+/* La imagen del producto hace un pequeño zoom interior */
+.tarjeta-accesorio:hover .img-acc {
+    transform: scale(1.08);
+}
+
+/* El subtítulo sube un poquito para darle lugar al texto */
+.tarjeta-accesorio:hover .acc-subtitulo {
+    transform: translateY(-5px);
+}
+
+/* La descripción aparece y sube suavemente a su lugar */
+.tarjeta-accesorio:hover .acc-desc {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+/* Al pasar el mouse por la tarjeta 5, la flecha se mueve a la derecha */
+.tarjeta-ver-mas:hover .icono-flecha {
+    transform: translateX(8px);
+}
+
+/* RESPONSIVE: Ajuste para tablets o celulares */
+@media (max-width: 1200px) {
+    .accesorios-grid {
+        gap: 20px;
+    }
+
+    .tarjeta-accesorio {
+        width: 220px;
+        height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tarjeta-accesorio {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        min-height: 250px;
+    }
+
+    /* En celular dejamos visible la descripción por defecto */
+    .acc-desc {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- SECCIÓN: CITA JOSHUA HON (SPLIT SCREEN) --- */
+.cita-seccion {
+    min-height: 100vh;
+    /* Ocupa el alto completo de la pantalla simulando 1080px */
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    /* Evita cualquier desbordamiento no deseado */
+}
+
+/* Mitad Izquierda: Fondo verde y textos */
+.cita-texto-contenedor {
+    width: 50%;
+    background-color: var(--verde-tern);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 8%;
+    box-sizing: border-box;
+}
+
+.cita-contenido {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 450px;
+    /* Separa de forma elegante la cita del autor abajo */
+}
+
+/* Estilo de la frase principal */
+.cita-frase {
+    color: #f0e9df;
+    /* Color especificado */
+    font-size: 42px;
+    font-weight: 600;
+    /* Poppins Semibold */
+    line-height: 1.3;
+    margin: 0;
+    text-align: left;
+}
+
+/* Estilo del autor y cargo */
+.cita-autor {
+    margin-top: 60px;
+}
+
+.autor-nombre {
+    color: #f0e9df;
+    font-size: 26px;
+    font-weight: 400;
+    /* Poppins Regular */
+    margin: 0 0 8px 0;
+}
+
+.autor-cargo {
+    color: #f0e9df;
+    font-size: 16px;
+    font-weight: 300;
+    /* Un tono un poquito más fino y sutil para el subtítulo */
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Mitad Derecha: Contenedor de imagen */
+.cita-imagen-contenedor {
+    width: 50%;
+    position: relative;
+}
+
+.img-cita {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Hace que la foto cubra exactamente la mitad derecha sin deformarse */
+    object-position: center;
+    display: block;
+}
+
+/* RESPONSIVE: En celulares y tablets chicas se pone uno debajo del otro */
+@media (max-width: 900px) {
+    .cita-seccion {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .cita-texto-contenedor,
+    .cita-imagen-contenedor {
+        width: 100%;
+    }
+
+    .cita-texto-contenedor {
+        padding: 60px 8%;
+    }
+
+    .cita-contenido {
+        min-height: auto;
+    }
+
+    .cita-autor {
+        margin-top: 40px;
+    }
+
+    .cita-imagen-contenedor {
+        height: 400px;
+        /* Altura fija para la foto en celular */
+    }
+}
+
+/* --- SECCIÓN: TESTIMONIOS (PERSONAS REALES) --- */
+.testimonios-seccion {
+    min-height: 100vh;
+    /* Ocupa el alto completo simulando los 1080px */
+    background-color: var(--fondo-secciones);
+    /* Mantiene el fondo #f0e9df */
+    padding: 80px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.testimonios-titulo {
+    color: var(--verde-tern);
+    font-size: 46px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.testimonios-subtitulo {
+    color: var(--verde-tern);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 0 60px 0;
+    text-align: center;
+}
+
+/* Estructura del carrusel con flechas a los costados */
+.carrusel-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* Botones circulares para las flechas */
+.btn-flecha {
+    background-color: #dfd8cd;
+    /* Color penitas más oscuro que el fondo para que destaque como en la foto */
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-flecha:hover {
+    background-color: #d0c8bd;
+    transform: scale(1.05);
+}
+
+.btn-flecha img {
+    width: 18px;
+    height: auto;
+}
+
+/* Rotamos la flecha izquierda porque el ícono original apunta a un lado */
+.flecha-izq img {
+    transform: rotate(180deg);
+}
+
+/* Rectángulo verde oscuro principal */
+.rectangulo-resena {
+    background-color: var(--verde-tern);
+    width: 100%;
+    max-width: 750px;
+    min-height: 360px;
+    border-radius: 35px;
+    padding: 50px 60px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(50, 77, 63, 0.15);
+}
+
+/* Ocultamos las reseñas por defecto y animamos la que está activa */
+.resena-item {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    animation: fadeResena 0.5s ease;
+}
+
+.resena-item.activa {
+    display: flex;
+}
+
+@keyframes fadeResena {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Texto de la reseña */
+.resena-texto {
+    color: var(--crema-tern);
+    /* #f9f4eb */
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0 0 35px 0;
+    max-width: 600px;
+}
+
+/* Contenedor del autor (Foto + Datos) */
+.resena-autor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.autor-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #516b5d;
+    /* Color de fondo por si no hay foto cargada aún */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.autor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.autor-datos {
+    text-align: left;
+}
+
+.nombre-autor {
+    color: var(--crema-tern);
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0 0 4px 0;
+}
+
+.ubicacion-autor {
+    color: var(--crema-tern);
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* Puntitos inferiores (Dots) */
+.indicadores-dots {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #929e97;
+    /* Verde clarito para los inactivos */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.activo {
+    background-color: var(--verde-tern);
+    /* Verde oscuro para el seleccionado */
+    transform: scale(1.2);
+}
+
+/* RESPONSIVE: En celulares las flechas bajan o se achica el cuadro */
+@media (max-width: 768px) {
+    .carrusel-contenedor {
+        gap: 15px;
+    }
+
+    .rectangulo-resena {
+        padding: 30px 20px;
+        min-height: 400px;
+    }
+
+    .resena-texto {
+        font-size: 18px;
+    }
+
+    .btn-flecha {
+        width: 45px;
+        height: 45px;
+    }
+
+    .resena-autor {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .autor-datos {
+        text-align: center;
+    }
+}
+
+/* --- SECCIÓN: FOOTER / PIE DE PÁGINA --- */
+.footer-tern {
+    background-color: var(--fondo-secciones);
+    /* Mantiene el fondo crema base #f0e9df */
+    padding: 60px 8% 40px 8%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--verde-tern);
+}
+
+/* =========================================
+   BLOQUE 1: NEWSLETTER BANNER
+========================================= */
+.newsletter-banner {
+    background-color: var(--verde-tern);
+    width: 100%;
+    border-radius: 40px;
+    /* Bordes bien redondeados como en el diseño */
+    padding: 45px 60px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+}
+
+.newsletter-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Ícono de sobre */
+.icono-sobre-svg {
+    width: 70px;
+    height: 70px;
+    color: #f0e9df;
+    flex-shrink: 0;
+}
+
+.icono-sobre-svg svg {
+    width: 100%;
+    height: 100%;
+}
+
+.newsletter-textos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.newsletter-titulo {
+    color: #f0e9df;
+    font-size: 30px;
+    font-weight: 600;
+    /* Poppins Semibold */
+    margin: 0 0 6px 0;
+}
+
+.newsletter-subtitulo {
+    color: #f0e9df;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Formulario e Input */
+.newsletter-form {
+    background-color: #ede7dd;
+    /* Tono crema claro dentro del input */
+    padding: 8px 8px 8px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+}
+
+.input-email {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 16px;
+    color: #555;
+    width: 100%;
+    outline: none;
+}
+
+.input-email::placeholder {
+    color: #8c938f;
+}
+
+.btn-suscribirme {
+    background-color: #5c6c58;
+    /* Color oliva verde intermedio como la imagen */
+    color: #f0e9df;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 40px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-suscribirme:hover {
+    background-color: #4b5848;
+    transform: scale(1.02);
+}
+
+/* =========================================
+   BLOQUE 2: COLUMNAS DE NAVEGACIÓN
+========================================= */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    /* La col de logo es el doble de ancha */
+    gap: 30px;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+/* Columna Logo */
+.col-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo-contenedor {
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 45px;
+    /* Ajustá si tu logo es más alto o ancho */
+    width: auto;
+    display: block;
+}
+
+.footer-eslogan {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--verde-tern);
+}
+
+/* Columnas de links */
+.col-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: var(--verde-tern);
+}
+
+.col-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.col-links li a {
+    text-decoration: none;
+    color: var(--verde-tern);
+    font-size: 16px;
+    font-weight: 400;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.col-links li a:hover {
+    opacity: 0.7;
+    transform: translateX(4px);
+    /* Un leve movimiento al pasar el mouse */
+}
+
+/* =========================================
+   BLOQUE 3: LEGALES Y COPYRIGHT
+========================================= */
+.footer-legales {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(50, 77, 63, 0.15);
+    /* Una línea divisoria muy sutil opcional, si no te gusta borrá esta línea */
+    font-size: 15px;
+    color: #7a8a82;
+    /* Tono verde agrisado como en el diseño */
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.copyright {
+    margin: 0;
+    font-weight: 400;
+}
+
+.links-legales {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.links-legales a {
+    text-decoration: none;
+    color: #7a8a82;
+    font-weight: 400;
+    transition: color 0.2s ease;
+}
+
+.links-legales a:hover {
+    color: var(--verde-tern);
+    text-decoration: underline;
+}
+
+.separador {
+    color: #7a8a82;
+}
+
+/* =========================================
+   RESPONSIVE FOOTER (Celulares y Tablets)
+========================================= */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    .col-logo {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-banner {
+        padding: 30px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .newsletter-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+        gap: 10px;
+        border-radius: 0;
+    }
+
+    .input-email {
+        background-color: #ede7dd;
+        padding: 15px 20px;
+        border-radius: 30px;
+        box-sizing: border-box;
+    }
+
+    .btn-suscribirme {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .col-logo {
+        grid-column: span 2;
+    }
+
+    .footer-legales {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
